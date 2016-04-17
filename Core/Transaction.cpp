@@ -14,6 +14,6 @@ void Transaction::perform()
 		this->from->_inputA.pop_front();
 	else
 		this->from->_inputB.pop_front();
-	if(this->toA)
-		this->to->_outputA-
+	/*if(this->toA)
+		this->to->_outputA->*/
 }
