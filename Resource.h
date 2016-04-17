@@ -4,8 +4,8 @@
 //
 
 ///Global variables.
-const int WINDOW_WIDTH = 650;
-const int WINDOW_HEIGHT = 650;
+#define WINDOW_WIDTH  650
+#define WINDOW_HEIGHT  650
 
 #define IDS_APP_TITLE			103
 
