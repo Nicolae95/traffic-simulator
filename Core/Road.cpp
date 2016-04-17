@@ -1,16 +1,16 @@
-#include "Band.h"
+#include "Road.h"
 
-Band::Band(Orientation orientation)
+Road::Road(Orientation orientation)
 {
 	this->_orientation = orientation;
 }
 
-Band::~Band()
+Road::~Road()
 {
 	this->_connections.clear();
 }
 
-void Band::addConection(Band* band)
+void Road::addConection(Road* band)
 {
 	this->_connections.push_back(band);
 }

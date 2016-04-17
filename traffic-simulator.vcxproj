@@ -166,6 +166,11 @@
     <Image Include="small.ico" />
     <Image Include="traffic-simulator.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Core\Core.vcxproj">
+      <Project>{e029a07e-5a60-4ee0-9a25-e28d8ab083f5}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

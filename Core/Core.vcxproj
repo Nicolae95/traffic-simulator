@@ -110,6 +110,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Road.h" />
+    <ClInclude Include="Car.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Road.cpp" />
+    <ClCompile Include="Car.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
