@@ -53,7 +53,8 @@ void Core::generateRandomCar()
 {
 	Road *temp = (rand() % 2) ? &horizontalRoad : &verticalRoad;
 	std::list<Car*> *tempList = (rand() % 2) ? &temp->_inputA : &temp->_inputB;
-	tempList->push_back(new Car());
+	if(tempList->size() < carsPerBand)
+		tempList->push_back(new Car());
 }
 
 
