@@ -10,6 +10,7 @@ private:
 	vector<Sprite*> sprites;
 	HINSTANCE hInst;
 	HWND hwnd;
+	
 public:
 	MainController(HINSTANCE hinst,HWND hwnd) {
 		this->hInst = hinst;
@@ -22,6 +23,8 @@ public:
 
 	void generateRandomCar() {
 		Sprite* car = new CarObject(hInst, L"assets/Audi.bmp", 100, 100, 100, 100);
+
+
 		((CarObject*)car)->setVelocity(1, 1);
 		sprites.push_back(car);
 	}

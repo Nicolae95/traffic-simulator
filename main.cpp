@@ -3,11 +3,17 @@
 #include "Sprite.h"
 #include "CarObject.h"
 #include "MainController.h"
+#include "Core.h"
 Sprite *backgorund;
 
 
 MainController *mainController;
 
+#define FPS 50
+#define INTERVAL 100/FPS
+#define FPS_PER_TRANSACTION 100
+
+int counter;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -29,6 +35,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		switch (wParam)
 		{
 		case TIMER_ELAPSE:
+			counter++;
+			if(counter > FPS_PER_TRANSACTION)
+			{
+				counter = 0;
+				core.nextStep();
+			}
 			RECT rect;
 			GetClientRect(hWnd, &rect);
 			///Update all here

@@ -13,6 +13,7 @@ private:
 	Road *currentRoad;
 	void check(Car *a, Car *b);
 public:
+	static Core instance;
 	std::list<Transaction*> transactions;
 	Core();
 	void nextStep();
