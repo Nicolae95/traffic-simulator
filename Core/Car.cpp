@@ -1,10 +1,7 @@
 #include "Car.h"
+#include <cstdlib>
 
 Car::Car()
 {
-}
-
-
-Car::~Car()
-{
+	direction = (Direction)(rand() % 3);
 }

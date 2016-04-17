@@ -10,9 +10,13 @@ private:
 	Road verticalRoad;
 	Road horizontalRoad;
 	Road *currentRoad;
-	std::list<Transaction> transactions;
+	void check(Car *a, Car *b);
 public:
+	std::list<Transaction*> transactions;
 	Core();
 	void nextStep();
+	void generateRandomCar();
+	bool canGoThroughtPath(Car *car, bool fromA);
+	void createTransactionForCar(Car *car,bool fromA);
 };
 

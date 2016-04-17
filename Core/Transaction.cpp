@@ -10,10 +10,17 @@ Transaction::Transaction(Road* from, Road* to, bool from_a, bool to_a)
 
 void Transaction::perform()
 {
-	if (this->fromA)
+	Car *car;
+	if (this->fromA) {
+		car = *(this->from->_inputA.begin());
 		this->from->_inputA.pop_front();
-	else
+	}
+	else {
+		car = *(this->from->_inputB.begin());
 		this->from->_inputB.pop_front();
-	/*if(this->toA)
-		this->to->_outputA->*/
+	}
+	if (this->toA)
+		this->to->_outputA.push_back(car);
+	else
+		this->to->_outputB.push_back(car);
 }
