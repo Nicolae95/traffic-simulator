@@ -114,6 +114,7 @@
     <ClInclude Include="Car.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Road.cpp" />
     <ClCompile Include="Car.cpp" />
   </ItemGroup>
