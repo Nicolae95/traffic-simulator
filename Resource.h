@@ -3,6 +3,10 @@
 // Used by traffic-simulator.rc
 //
 
+///Global variables.
+const int WINDOW_WIDTH = 650;
+const int WINDOW_HEIGHT = 650;
+
 #define IDS_APP_TITLE			103
 
 #define IDR_MAINFRAME			128
@@ -16,6 +20,7 @@
 #define IDC_MYICON				2
 #ifndef IDC_STATIC
 #define IDC_STATIC				-1
+#define TIMER_ELAPSE			1024
 #endif
 // Next default values for new objects
 //
