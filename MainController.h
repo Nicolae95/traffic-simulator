@@ -2,6 +2,8 @@
 #include <vector>
 #include "Sprite.h"
 #include "CarObject.h"
+#include "resource.h"
+
 class MainController
 {
 private:
@@ -12,6 +14,12 @@ public:
 	MainController(HINSTANCE hinst,HWND hwnd) {
 		this->hInst = hinst;
 	}
+
+	void setBackGorund() {
+		Sprite *backgorund = new CarObject(hInst, L"assets/map.bmp", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 650, 650);
+		sprites.push_back(backgorund);
+	};
+
 	void generateRandomCar() {
 		Sprite* car = new CarObject(hInst, L"assets/Audi.bmp", 100, 100, 100, 100);
 		((CarObject*)car)->setVelocity(1, 1);

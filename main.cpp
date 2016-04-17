@@ -16,12 +16,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
 	case WM_CREATE:
-
 		SetTimer(hWnd, TIMER_ELAPSE, 40, (TIMERPROC)NULL);
-		backgorund = new CarObject(hInst, L"assets/map.bmp", WINDOW_WIDTH/2, WINDOW_HEIGHT/2, 650, 650);
 		mainController = new MainController(hInst,hWnd);
 		
+		//Gnerate Objects
+		mainController->setBackGorund();
 		mainController->generateRandomCar();
+
 
 		break;
 	case WM_TIMER:
@@ -56,14 +57,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     case WM_PAINT:
         {
 			hdc = BeginPaint(hWnd, &ps);
-			
-			///Render here.
-			backgorund->render(hWnd,ps,hdc);
 			mainController->render(ps,hdc);
-			
-
-			EndPaint(hWnd, &ps);
-		
+			EndPaint(hWnd, &ps);		
 			break;
         }
         break;

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "traffic-simulator", "traffic-simulator.vcxproj", "{1E7A1F3B-D631-4FA0-8508-AB42C9077692}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Core", "Core\Core.vcxproj", "{E029A07E-5A60-4EE0-9A25-E28D8AB083F5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "traffic-objects", "..\traffic-objects\traffic-objects.vcxproj", "{EE024A07-16EB-4ED3-8681-E6500F780D98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,14 @@ Global
 		{E029A07E-5A60-4EE0-9A25-E28D8AB083F5}.Release|x64.Build.0 = Release|x64
 		{E029A07E-5A60-4EE0-9A25-E28D8AB083F5}.Release|x86.ActiveCfg = Release|Win32
 		{E029A07E-5A60-4EE0-9A25-E28D8AB083F5}.Release|x86.Build.0 = Release|Win32
+		{EE024A07-16EB-4ED3-8681-E6500F780D98}.Debug|x64.ActiveCfg = Debug|x64
+		{EE024A07-16EB-4ED3-8681-E6500F780D98}.Debug|x64.Build.0 = Debug|x64
+		{EE024A07-16EB-4ED3-8681-E6500F780D98}.Debug|x86.ActiveCfg = Debug|Win32
+		{EE024A07-16EB-4ED3-8681-E6500F780D98}.Debug|x86.Build.0 = Debug|Win32
+		{EE024A07-16EB-4ED3-8681-E6500F780D98}.Release|x64.ActiveCfg = Release|x64
+		{EE024A07-16EB-4ED3-8681-E6500F780D98}.Release|x64.Build.0 = Release|x64
+		{EE024A07-16EB-4ED3-8681-E6500F780D98}.Release|x86.ActiveCfg = Release|Win32
+		{EE024A07-16EB-4ED3-8681-E6500F780D98}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
