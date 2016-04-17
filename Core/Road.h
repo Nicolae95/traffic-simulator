@@ -1,15 +1,13 @@
 #pragma once
-#include "Orientation.h"
 #include <list>
+#include "Car.h"
 
-class Road
+struct Road
 {
-private:
-	Orientation _orientation;
-	std::list<Road*> _connections;
-public:
-	Road(Orientation orientation);
-	~Road();
-	void addConection(Road *band);
+	bool active;
+	std::list<Car*> _inputA;
+	std::list<Car*> _inputB;
+	std::list<Car*> _outputA;
+	std::list<Car*> _outputB;
 };
 
