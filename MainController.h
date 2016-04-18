@@ -56,7 +56,6 @@ public:
 
 	void createDcar()
 	{
-
 		Sprite* car = new CarObjectD(hInst, path);
 		((CarObjectD*)car)->go();
 		sprites.push_back(car);
@@ -64,7 +63,6 @@ public:
 
 	void createCcar()
 	{
-
 		Sprite* car = new CarObjectC(hInst, path);
 		((CarObjectC*)car)->go();
 		sprites.push_back(car);
@@ -81,7 +79,6 @@ public:
 		Sprite* car = new CarObjectB(hInst, path);
 		((CarObjectB*)car)->go();
 		sprites.push_back(car);
-
 	}
 
 	void switchTraficLightColor() {
