@@ -102,30 +102,38 @@ public:
 
 	/////Output ................................
 
-	void createDOcar()
+	void createDOcar(bool leftLight, bool rightLight)
 	{
 		Sprite* car = new CarObjectDO(hInst, path);
-		((CarObjectD*)car)->go();
+		((CarObjectDO*)car)->turnLeft(leftLight);
+		((CarObjectDO*)car)->turnRight(rightLight);
+		((CarObjectDO*)car)->go();
 		sprites.push_back(car);
 	}
 
-	void createCOcar()
+	void createCOcar(bool leftLight, bool rightLight)
 	{
 		Sprite* car = new CarObjectCO(hInst, path);
-		((CarObjectC*)car)->go();
+		((CarObjectCO*)car)->turnLeft(leftLight);
+		((CarObjectCO*)car)->turnRight(rightLight);
+		((CarObjectCO*)car)->go();
 		sprites.push_back(car);
 	}
 
-	void createAOcar()
+	void createAOcar(bool leftLight, bool rightLight)
 	{
 		Sprite* car = new CarObjectAO(hInst, path);
-		((CarObjectA*)car)->go();
+		((CarObjectAO*)car)->turnLeft(leftLight);
+		((CarObjectAO*)car)->turnRight(rightLight);
+		((CarObjectAO*)car)->go();
 		sprites.push_back(car);
 	}
 
-	void createBOcar() {
+	void createBOcar(bool leftLight, bool rightLight) {
 		Sprite* car = new CarObjectBO(hInst, path);
-		((CarObjectB*)car)->go();
+		((CarObjectBO*)car)->turnLeft(leftLight);
+		((CarObjectBO*)car)->turnRight(rightLight);
+		((CarObjectBO*)car)->go();
 		sprites.push_back(car);
 	}
 

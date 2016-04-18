@@ -24,20 +24,20 @@ void onNewCycle(Car *carIAH,Car *carOAH,Car *carIBH,Car *carOBH, Car *carIAV, Ca
 	if (carIAH)
 		mainController->createBcar(carIAH->direction == RIGHT, carIAH->direction == LEFT);
 	if (carIBH)
-		mainController->createDcar(carIBH->direction == RIGHT, carIAH->direction == LEFT);
+		mainController->createDcar(carIBH->direction == RIGHT, carIBH->direction == LEFT);
 	if (carIAV)
-		mainController->createAcar(carIAH->direction == RIGHT, carIAH->direction == LEFT);
+		mainController->createAcar(carIAV->direction == RIGHT, carIAV->direction == LEFT);
 	if (carIBV)
-		mainController->createCcar(carIBH->direction == RIGHT, carIAH->direction == LEFT);
+		mainController->createCcar(carIBV->direction == RIGHT, carIBV->direction == LEFT);
 	
 	if (carOAH)
-		mainController->createBcar(carIAH->direction == RIGHT, carIAH->direction == LEFT);
+		mainController->createBOcar(carOAH->direction == RIGHT, carOAH->direction == LEFT);
 	if (carOBH)
-		mainController->createDcar(carIBH->direction == RIGHT, carIAH->direction == LEFT);
+		mainController->createDOcar(carOBH->direction == RIGHT, carOBH->direction == LEFT);
 	if (carOAV)
-		mainController->createAcar(carIAH->direction == RIGHT, carIAH->direction == LEFT);
+		mainController->createAOcar(carOAV->direction == RIGHT, carOAV->direction == LEFT);
 	if (carOBV)
-		mainController->createCcar(carIBH->direction == RIGHT, carIAH->direction == LEFT);
+		mainController->createCOcar(carOBV->direction == RIGHT, carOBV->direction == LEFT);
 	//create new ones ! check for null
 }
 
@@ -50,20 +50,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_CREATE:
 		SetTimer(hWnd, TIMER_ELAPSE, INTERVAL, (TIMERPROC)NULL);
 		mainController = new MainController(hInst,hWnd);
-<<<<<<< HEAD
-
-
 		RegisterHotKey(hWnd, INCREASE_SPAWN_VELOCITY, MOD_CONTROL, 0x51);
 
 		RegisterHotKey(hWnd, DECREASE_SPAWN_VELOCITY, MOD_CONTROL, 0x41);
 		
-		///375 px wdth 
-
-		//Gnerate Objects
-		mainController->createAcar();
-=======
->>>>>>> af3d9f3425355e4ce36e3688baa9286483366d08
-
 		break;
 	case WM_LBUTTONDOWN: {
 		mainController->switchTraficLightColor();
