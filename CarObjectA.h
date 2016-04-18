@@ -4,6 +4,7 @@
 class CarObjectA : public Sprite
 {
 private:
+	int notIntersectoin = 500;
 	int vX;
 	int vY;
 	bool leftLight = false;
@@ -89,12 +90,15 @@ public:
 	}
 
 	virtual void update() override {
-		x += vX;
-		y += vY;
+		if (y != notIntersectoin) {
+			x += vX;
+			y += vY;
+		}
+	
 	}
 
 	void go() {
-		this->setVelocity(0,-5);
+		this->setVelocity(0,-2);
 	}
 };
 
