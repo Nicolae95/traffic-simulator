@@ -69,7 +69,7 @@ public:
 		Sprite* car = new CarObjectD(hInst, path);
 		((CarObjectD*)car)->turnLeft(leftLight);
 		((CarObjectD*)car)->turnRight(rightLight);
-		((CarObjectD*)car)->go();
+		//((CarObjectD*)car)->go();
 		sprites.push_back(car);
 	}
 
@@ -78,7 +78,7 @@ public:
 		Sprite* car = new CarObjectC(hInst, path);
 		((CarObjectC*)car)->turnLeft(leftLight);
 		((CarObjectC*)car)->turnRight(rightLight);
-		((CarObjectC*)car)->go();
+		//((CarObjectC*)car)->go();
 		sprites.push_back(car);
 	}
 
@@ -87,7 +87,7 @@ public:
 		Sprite* car = new CarObjectA(hInst, path);
 		((CarObjectA*)car)->turnLeft(leftLight);
 		((CarObjectA*)car)->turnRight(rightLight);
-		((CarObjectA*)car)->go();
+		//((CarObjectA*)car)->go();
 		sprites.push_back(car);
 	}
 
@@ -95,7 +95,7 @@ public:
 		Sprite* car = new CarObjectB(hInst, path);
 		((CarObjectB*)car)->turnLeft(leftLight);
 		((CarObjectB*)car)->turnRight(rightLight);
-		((CarObjectB*)car)->go();
+		//((CarObjectB*)car)->go();
 		sprites.push_back(car);
 	}
 

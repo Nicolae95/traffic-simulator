@@ -95,7 +95,7 @@ public:
 	}
 
 	void go() {
-		this->setVelocity(0, -5);
+		this->setVelocity(0, 2);
 	}
 };
 

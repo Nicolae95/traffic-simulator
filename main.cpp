@@ -22,11 +22,11 @@ void onNewCycle(Car *carIAH,Car *carOAH,Car *carIBH,Car *carOBH, Car *carIAV, Ca
 	//remove old !!!
 	mainController->removeAllCars();
 	if (carIAH)
-		mainController->createBcar(carIAH->direction == RIGHT, carIAH->direction == LEFT);
+		mainController->createBcar(carIAH->direction == LEFT, carIAH->direction == RIGHT);
 	if (carIBH)
 		mainController->createDcar(carIBH->direction == RIGHT, carIBH->direction == LEFT);
 	if (carIAV)
-		mainController->createAcar(carIAV->direction == RIGHT, carIAV->direction == LEFT);
+		mainController->createAcar(carIAV->direction == LEFT, carIAV->direction == RIGHT);
 	if (carIBV)
 		mainController->createCcar(carIBV->direction == RIGHT, carIBV->direction == LEFT);
 	
@@ -37,7 +37,7 @@ void onNewCycle(Car *carIAH,Car *carOAH,Car *carIBH,Car *carOBH, Car *carIAV, Ca
 	if (carOAV)
 		mainController->createAOcar(carOAV->direction == RIGHT, carOAV->direction == LEFT);
 	if (carOBV)
-		mainController->createCOcar(carOBV->direction == RIGHT, carOBV->direction == LEFT);
+		mainController->createCOcar(carOBV->direction == LEFT, carOBV->direction == RIGHT);
 	//create new ones ! check for null
 }
 
@@ -55,9 +55,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		RegisterHotKey(hWnd, DECREASE_SPAWN_VELOCITY, MOD_CONTROL, 0x41);
 		
 		break;
-	case WM_LBUTTONDOWN: {
-		mainController->switchTraficLightColor();
-	}
 	case WM_HOTKEY:
 		switch (wParam)
 		{

@@ -12,7 +12,7 @@ private:
 	bool rightLight = false;
 public:
 
-	CarObjectDO(HINSTANCE hInst, LPCWSTR path) : Sprite(hInst, path, 580, 520, 70, 50) { }
+	CarObjectDO(HINSTANCE hInst, LPCWSTR path) : Sprite(hInst, path, 580, 380, 70, 50) { }
 
 	void virtual render(HWND hwnd, PAINTSTRUCT ps, HDC hdc) {
 		BITMAP 			bitmap;
@@ -98,7 +98,7 @@ public:
 	}
 
 	void go() {
-		this->setVelocity(-5, 0);
+		this->setVelocity(2, 0);
 	}
 
 };
