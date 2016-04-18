@@ -64,38 +64,42 @@ public:
 
 	/////Input..............................................
 
-	void createDcar(bool leftLight, bool rightLight)
+	void createDcar(bool leftLight, bool rightLight,bool animate)
 	{
 		Sprite* car = new CarObjectD(hInst, path);
 		((CarObjectD*)car)->turnLeft(leftLight);
 		((CarObjectD*)car)->turnRight(rightLight);
-		//((CarObjectD*)car)->go();
+		((CarObjectD*)car)->setAnimate(animate);
+		((CarObjectD*)car)->go();
 		sprites.push_back(car);
 	}
 
-	void createCcar(bool leftLight, bool rightLight)
+	void createCcar(bool leftLight, bool rightLight, bool animate)
 	{
 		Sprite* car = new CarObjectC(hInst, path);
 		((CarObjectC*)car)->turnLeft(leftLight);
 		((CarObjectC*)car)->turnRight(rightLight);
-		//((CarObjectC*)car)->go();
+		((CarObjectC*)car)->setAnimate(animate);
+		((CarObjectC*)car)->go();
 		sprites.push_back(car);
 	}
 
-	void createAcar(bool leftLight,bool rightLight)
+	void createAcar(bool leftLight, bool rightLight, bool animate)
 	{
 		Sprite* car = new CarObjectA(hInst, path);
 		((CarObjectA*)car)->turnLeft(leftLight);
 		((CarObjectA*)car)->turnRight(rightLight);
-		//((CarObjectA*)car)->go();
+		((CarObjectA*)car)->setAnimate(animate);
+		((CarObjectA*)car)->go();
 		sprites.push_back(car);
 	}
 
-	void createBcar(bool leftLight, bool rightLight) {
+	void createBcar(bool leftLight, bool rightLight, bool animate) {
 		Sprite* car = new CarObjectB(hInst, path);
 		((CarObjectB*)car)->turnLeft(leftLight);
 		((CarObjectB*)car)->turnRight(rightLight);
-		//((CarObjectB*)car)->go();
+		((CarObjectB*)car)->setAnimate(animate);
+		((CarObjectB*)car)->go();
 		sprites.push_back(car);
 	}
 
