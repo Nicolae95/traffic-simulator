@@ -78,6 +78,18 @@
     <ClInclude Include="Transaction.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
+    <ClInclude Include="CarObjectAO.h">
+      <Filter>Header Files\traffic-objects</Filter>
+    </ClInclude>
+    <ClInclude Include="CarObjectBO.h">
+      <Filter>Header Files\traffic-objects</Filter>
+    </ClInclude>
+    <ClInclude Include="CarObjectCO.h">
+      <Filter>Header Files\traffic-objects</Filter>
+    </ClInclude>
+    <ClInclude Include="CarObjectDO.h">
+      <Filter>Header Files\traffic-objects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -150,10 +150,14 @@
   <ItemGroup>
     <ClInclude Include="BackGroundObject.h" />
     <ClInclude Include="Car.h" />
+    <ClInclude Include="CarObjectBO.h" />
     <ClInclude Include="CarObjectA.h" />
+    <ClInclude Include="CarObjectAO.h" />
     <ClInclude Include="CarObjectB.h" />
     <ClInclude Include="CarObjectC.h" />
+    <ClInclude Include="CarObjectCO.h" />
     <ClInclude Include="CarObjectD.h" />
+    <ClInclude Include="CarObjectDO.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="MainController.h" />
     <ClInclude Include="Resource.h" />

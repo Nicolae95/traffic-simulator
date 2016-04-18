@@ -14,6 +14,7 @@
 class MainController
 {
 private:
+	LPCWSTR path = L"assets/audi.bmp";
 	vector<Sprite*> sprites;
 	HINSTANCE hInst;
 	HWND hwnd;
@@ -53,20 +54,30 @@ public:
 		Setups();
 	}
 
-	void createAcar() {
-		LPCWSTR path = L"assets/audi.bmp";
-		
+	void createDcar()
+	{
+		Sprite* car = new CarObjectD(hInst, path);
+		((CarObjectD*)car)->go();
+		sprites.push_back(car);
+	}
+
+	void createCcar()
+	{
+		Sprite* car = new CarObjectC(hInst, path);
+		((CarObjectC*)car)->go();
+		sprites.push_back(car);
+	}
+
+	void createAcar()
+	{
 		Sprite* car = new CarObjectA(hInst, path);
 		((CarObjectA*)car)->go();
 		sprites.push_back(car);
-		car = new CarObjectB(hInst, path);
+	}
+
+	void createBcar() {
+		Sprite* car = new CarObjectB(hInst, path);
 		((CarObjectB*)car)->go();
-		sprites.push_back(car);
-		car = new CarObjectC(hInst, path);
-		((CarObjectC*)car)->go();
-		sprites.push_back(car);
-		car = new CarObjectD(hInst, path);
-		((CarObjectD*)car)->go();
 		sprites.push_back(car);
 	}
 
