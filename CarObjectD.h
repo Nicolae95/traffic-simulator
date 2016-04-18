@@ -4,6 +4,7 @@
 class CarObjectD : public Sprite
 {
 private:
+	bool animate = false;
 	int notIntersectoin = 500;
 	int vX;
 	int vY;
@@ -12,6 +13,10 @@ private:
 public:
 	
 	CarObjectD(HINSTANCE hInst, LPCWSTR path) : Sprite(hInst, path, 580, 280, 70, 50) { }
+
+	void setAnimate(bool val) {
+		this->animate = val;
+	}
 
 	void virtual render(HWND hwnd, PAINTSTRUCT ps, HDC hdc) {
 		BITMAP 			bitmap;
@@ -100,7 +105,8 @@ public:
 	}
 
 	void go() {
-		this->setVelocity(-2, 0);
+		if (animate)
+			this->setVelocity(-2, 0);
 	}
 
 };
