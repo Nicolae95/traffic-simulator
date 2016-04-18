@@ -74,6 +74,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			if (counter > FPS_PER_TRANSACTION)
 			{
 				core.nextStep();
+				mainController->setPHA(core.horizontalRoad.crossingA);
+				mainController->setPHB(core.horizontalRoad.crossingB);
+				mainController->setPVA(core.verticalRoad.crossingA);
+				mainController->setPVB(core.verticalRoad.crossingB);
 				std::list<Car*>::iterator HOA = core.horizontalRoad._outputA.begin();
 				HOA++;
 				std::list<Car*>::iterator HOB = core.horizontalRoad._outputB.begin();

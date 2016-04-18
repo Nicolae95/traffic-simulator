@@ -6,8 +6,10 @@ class Core
 {
 private:
 	int delay;
+	int zebraDelay;
 	int spawnDelay;
 	int spawnIterator;
+	int zebraIterator;
 	Road *currentRoad;
 	void check(Car *a, Car *b);
 public:

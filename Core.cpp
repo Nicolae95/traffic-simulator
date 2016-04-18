@@ -9,6 +9,7 @@ Core::Core()
 	spawnDelay = 1;
 	iterator = 0;
 	spawnIterator = 0;
+	zebraDelay = 2;
 	currentRoad = &horizontalRoad;
 }
 
@@ -29,6 +30,20 @@ void Core::nextStep()
 		(*opositeRoad->_inputA.begin())->animateAparition = false;
 	if ((*opositeRoad->_inputB.begin()))
 		(*opositeRoad->_inputB.begin())->animateAparition = false;
+
+	// reset crossing :) assume that "pietons" crossed lines.
+	verticalRoad.crossingA = verticalRoad.crossingB = horizontalRoad.crossingA = horizontalRoad.crossingB = false;
+	
+	zebraIterator++;
+	if (zebraIterator > zebraDelay)
+	{
+		zebraIterator = 0;
+		if (rand() % 2)
+			opositeRoad->crossingA = true;
+		else
+			opositeRoad->crossingB = true;
+	}
+
 
 	if (*(verticalRoad._inputA.begin()) == NULL) {
 		verticalRoad._inputA.pop_front();
@@ -82,9 +97,7 @@ void Core::nextStep()
 			createTransactionForCar(carB,false);
 	}
 
-	// reset crossing :) assume that "pietons" crossed lines.
-	Road *crossingRoad = (currentRoad == &verticalRoad) ? &horizontalRoad : &verticalRoad;
-	crossingRoad->crossingA = crossingRoad->crossingB = false;
+	
 
 	spawnIterator++;
 	if (spawnIterator >= spawnDelay)
