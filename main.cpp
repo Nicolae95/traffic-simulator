@@ -10,7 +10,7 @@ MainController *mainController;
 
 #define FPS 50
 #define INTERVAL 1000/FPS
-#define FPS_PER_TRANSACTION 100
+#define FPS_PER_TRANSACTION 50
 
 #define INCREASE_SPEED 0
 #define DECREASE_SPEED 1
@@ -47,6 +47,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			if (counter > FPS_PER_TRANSACTION)
 			{
 				core.nextStep();
+				if (core.iterator == 0)
+					mainController->switchTraficLightColor();
 				counter = 0;
 			}
 			RECT rect;
