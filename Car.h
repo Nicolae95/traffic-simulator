@@ -9,6 +9,7 @@ class Car
 {
 public:
 	Direction direction;
+	bool isInTransaction;
 	Car();
 };
 

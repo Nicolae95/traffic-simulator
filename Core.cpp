@@ -177,6 +177,7 @@ void Core::createTransactionForCar(Car* car,bool fromA)
 		// if go forward :)
 		if (toRoad == currentRoad)
 			toA = !fromA;
+		car->isInTransaction = true;
 		transactions.push_back(new Transaction(currentRoad, toRoad, fromA, toA));
 	}
 }

@@ -33,7 +33,7 @@ void onNewCycle(Car *carIAH,Car *carOAH,Car *carIBH,Car *carOBH, Car *carIAV, Ca
 	if (carOAH)
 		mainController->createBOcar(carOAH->direction == RIGHT, carOAH->direction == LEFT);
 	if (carOBH)
-		mainController->createDOcar(carOBH->direction == RIGHT, carOBH->direction == LEFT);
+		mainController->createDOcar(carOBH->direction == LEFT, carOBH->direction == RIGHT);
 	if (carOAV)
 		mainController->createAOcar(carOAV->direction == RIGHT, carOAV->direction == LEFT);
 	if (carOBV)
@@ -74,15 +74,23 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			if (counter > FPS_PER_TRANSACTION)
 			{
 				core.nextStep();
+				std::list<Car*>::iterator HOA = core.horizontalRoad._outputA.begin();
+				HOA++;
+				std::list<Car*>::iterator HOB = core.horizontalRoad._outputB.begin();
+				HOB++;
+				std::list<Car*>::iterator VOA = core.verticalRoad._outputA.begin();
+				VOA++;
+				std::list<Car*>::iterator VOB = core.verticalRoad._outputB.begin();
+				VOB++;
 				onNewCycle(
 					*(core.horizontalRoad._inputA.begin()),
-					*(core.horizontalRoad._outputA.begin()),
+					*(HOA),
 					*(core.horizontalRoad._inputB.begin()),
-					*(core.horizontalRoad._outputB.begin()),
+					*(HOB),
 					*(core.verticalRoad._inputA.begin()),
-					*(core.verticalRoad._outputA.begin()),
+					*(VOA),
 					*(core.verticalRoad._inputB.begin()),
-					*(core.verticalRoad._outputB.begin())
+					*(VOB)
 				);
 				if (core.iterator == 0)
 					mainController->switchTraficLightColor();
