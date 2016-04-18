@@ -24,9 +24,16 @@ void Core::nextStep()
 	}
 	currentRoad->active = true;
 
+	Road *opositeRoad = (currentRoad == &verticalRoad) ? &horizontalRoad : &verticalRoad;
+	if ((*opositeRoad->_inputA.begin()))
+		(*opositeRoad->_inputA.begin())->animateAparition = false;
+	if ((*opositeRoad->_inputB.begin()))
+		(*opositeRoad->_inputB.begin())->animateAparition = false;
+
 	if (*(verticalRoad._inputA.begin()) == NULL) {
 		verticalRoad._inputA.pop_front();
 		verticalRoad._inputA.push_back(NULL);
+
 	}
 	if (*(verticalRoad._inputB.begin()) == NULL) {
 		verticalRoad._inputB.pop_front();
@@ -79,8 +86,6 @@ void Core::nextStep()
 	Road *crossingRoad = (currentRoad == &verticalRoad) ? &horizontalRoad : &verticalRoad;
 	crossingRoad->crossingA = crossingRoad->crossingB = false;
 
-
-
 	spawnIterator++;
 	if (spawnIterator >= spawnDelay)
 	{
@@ -122,10 +127,13 @@ void Core::check(Car* a, Car* b)
 	{
 		createTransactionForCar(a,true);
 	}
+	else
+		a->animateAparition = false;
 	if(bCanMove)
 	{
 		createTransactionForCar(b,false);		
-	}
+	} else
+		b->animateAparition = false;
 }
 
 //check for zebras )))
@@ -177,7 +185,6 @@ void Core::createTransactionForCar(Car* car,bool fromA)
 		// if go forward :)
 		if (toRoad == currentRoad)
 			toA = !fromA;
-		car->isInTransaction = true;
 		transactions.push_back(new Transaction(currentRoad, toRoad, fromA, toA));
 	}
 }

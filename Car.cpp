@@ -4,4 +4,5 @@
 Car::Car()
 {
 	direction = (Direction)(rand() % 3);
+	animateAparition = true;
 }
