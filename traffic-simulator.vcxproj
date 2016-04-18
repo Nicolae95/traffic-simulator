@@ -83,12 +83,13 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -148,24 +149,30 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackGroundObject.h" />
+    <ClInclude Include="Car.h" />
     <ClInclude Include="CarObjectA.h" />
     <ClInclude Include="CarObjectB.h" />
     <ClInclude Include="CarObjectC.h" />
     <ClInclude Include="CarObjectD.h" />
+    <ClInclude Include="Core.h" />
     <ClInclude Include="MainController.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Road.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="TrafficLightObject.h" />
+    <ClInclude Include="Transaction.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BackGroundObject.cpp" />
+    <ClCompile Include="Car.cpp" />
     <ClCompile Include="CarObjectA.cpp" />
     <ClCompile Include="CarObjectB.cpp" />
     <ClCompile Include="CarObjectC.cpp" />
     <ClCompile Include="CarObjectD.cpp" />
+    <ClCompile Include="Core.cpp" />
     <ClCompile Include="MainController.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -176,6 +183,7 @@
     </ClCompile>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TrafficLightObject.cpp" />
+    <ClCompile Include="Transaction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="traffic-simulator.rc" />
@@ -183,11 +191,6 @@
   <ItemGroup>
     <Image Include="small.ico" />
     <Image Include="traffic-simulator.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Core\Core.vcxproj">
-      <Project>{e029a07e-5a60-4ee0-9a25-e28d8ab083f5}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

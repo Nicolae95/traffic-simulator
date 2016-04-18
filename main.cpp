@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "main.h"
 #include "Sprite.h"
-#include "CarObjectA.h"
 #include "MainController.h"
 #include "Core.h"
 Sprite *backgorund;

@@ -19,6 +19,12 @@
     <Filter Include="Source Files\traffic-objects">
       <UniqueIdentifier>{91bd05ce-9a8f-4f52-bdd3-df61208b1961}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\core">
+      <UniqueIdentifier>{d3f50c36-01b6-4fc7-903e-8c41698f69dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\core">
+      <UniqueIdentifier>{363c2fa1-48a9-4de6-a8bb-9705a9e9f560}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -60,6 +66,18 @@
     <ClInclude Include="CarObjectD.h">
       <Filter>Header Files\traffic-objects</Filter>
     </ClInclude>
+    <ClInclude Include="Car.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Road.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="Transaction.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -91,6 +109,15 @@
     </ClCompile>
     <ClCompile Include="CarObjectD.cpp">
       <Filter>Source Files\traffic-objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Car.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="Transaction.cpp">
+      <Filter>Source Files\core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
