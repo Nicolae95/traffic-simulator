@@ -19,12 +19,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		SetTimer(hWnd, TIMER_ELAPSE, 40, (TIMERPROC)NULL);
 		mainController = new MainController(hInst,hWnd);
 		
+		///375 px wdth 
+
 		//Gnerate Objects
-		mainController->setBackGorund();
-		mainController->generateRandomCar();
+		mainController->generateRandomCar(375,500);
 
 
 		break;
+	case WM_LBUTTONDOWN: {
+		mainController->switchTraficLightColor();
+	}
 	case WM_TIMER:
 		switch (wParam)
 		{
