@@ -172,11 +172,13 @@ void Core::createTransactionForCar(Car* car,bool fromA)
 
 void Core::increaseSpeed()
 {
+	
 	if (delay > 2)
 		delay--;
 }
 
 void Core::decreaseSpeed()
 {
-	delay++;
+	if(delay < 10)
+		delay++;
 }

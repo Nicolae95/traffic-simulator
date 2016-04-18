@@ -57,6 +57,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			break;
 		}
 		break;
+	case WM_MOUSEWHEEL: {
+		int mouseWheel = (short)HIWORD(wParam);
+		mouseWheel > 0 ? core.increaseSpeed() : core.decreaseSpeed();
+	}
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
