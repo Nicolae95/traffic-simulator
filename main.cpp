@@ -19,6 +19,13 @@ MainController *mainController;
 int counter;
 float delta;
 
+void onNewCycle(Car *carIAH,Car *carOAH,Car *carIBH,Car *carOBH, Car *carIAV, Car *carOAV, Car *carIBV, Car *carOBV)
+{
+	//remove old !!!
+
+	//create new ones ! check for null
+}
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	PAINTSTRUCT 	ps;
@@ -47,6 +54,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			if (counter > FPS_PER_TRANSACTION)
 			{
 				core.nextStep();
+				onNewCycle(
+					*(core.horizontalRoad._inputA.begin()),
+					*(core.horizontalRoad._outputA.begin()),
+					*(core.horizontalRoad._inputB.begin()),
+					*(core.horizontalRoad._outputB.begin()),
+					*(core.verticalRoad._inputA.begin()),
+					*(core.verticalRoad._outputA.begin()),
+					*(core.verticalRoad._inputB.begin()),
+					*(core.verticalRoad._outputB.begin())
+				);
 				if (core.iterator == 0)
 					mainController->switchTraficLightColor();
 				counter = 0;

@@ -6,11 +6,11 @@ class Core
 {
 private:
 	int delay;
-	Road verticalRoad;
-	Road horizontalRoad;
 	Road *currentRoad;
 	void check(Car *a, Car *b);
 public:
+	Road verticalRoad;
+	Road horizontalRoad;
 	int iterator;
 	static Core instance;
 	std::list<Transaction*> transactions;
