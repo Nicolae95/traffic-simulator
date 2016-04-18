@@ -6,6 +6,8 @@ class Core
 {
 private:
 	int delay;
+	int spawnDelay;
+	int spawnIterator;
 	Road *currentRoad;
 	void check(Car *a, Car *b);
 public:
@@ -21,5 +23,7 @@ public:
 	void createTransactionForCar(Car *car,bool fromA);
 	void increaseSpeed();
 	void decreaseSpeed();
+	void increaseRandomSpeed();
+	void decreaseRandomSpeed();
 };
 

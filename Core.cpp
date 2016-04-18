@@ -6,7 +6,9 @@ Core::Core()
 {
 	srand(time(NULL));
 	delay = 5;
+	spawnDelay = 1;
 	iterator = 0;
+	spawnIterator = 0;
 	currentRoad = &horizontalRoad;
 }
 
@@ -76,6 +78,15 @@ void Core::nextStep()
 	// reset crossing :) assume that "pietons" crossed lines.
 	Road *crossingRoad = (currentRoad == &verticalRoad) ? &horizontalRoad : &verticalRoad;
 	crossingRoad->crossingA = crossingRoad->crossingB = false;
+
+
+
+	spawnIterator++;
+	if (spawnIterator >= spawnDelay)
+	{
+		spawnIterator = 0;
+		generateRandomCar();
+	}
 }
 
 void Core::generateRandomCar()
@@ -179,4 +190,17 @@ void Core::increaseSpeed()
 void Core::decreaseSpeed()
 {
 	delay++;
+}
+
+
+void Core::increaseRandomSpeed()
+{
+	if(spawnDelay > 0)
+		spawnDelay--;
+}
+
+void Core::decreaseRandomSpeed()
+{
+	if (spawnDelay < 5)
+		spawnDelay++;
 }

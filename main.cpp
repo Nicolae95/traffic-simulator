@@ -12,12 +12,10 @@ MainController *mainController;
 #define INTERVAL 1000/FPS
 #define FPS_PER_TRANSACTION 50
 
-#define INCREASE_SPEED 0
-#define DECREASE_SPEED 1
-#define GENERATE_CAR 1
+#define INCREASE_SPAWN_VELOCITY 1
+#define DECREASE_SPAWN_VELOCITY 2
 
 int counter;
-float delta;
 
 void onNewCycle(Car *carIAH,Car *carOAH,Car *carIBH,Car *carOBH, Car *carIAV, Car *carOAV, Car *carIBV, Car *carOBV)
 {
@@ -35,6 +33,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_CREATE:
 		SetTimer(hWnd, TIMER_ELAPSE, INTERVAL, (TIMERPROC)NULL);
 		mainController = new MainController(hInst,hWnd);
+
+
+		RegisterHotKey(hWnd, INCREASE_SPAWN_VELOCITY, MOD_CONTROL, 0x51);
+
+		RegisterHotKey(hWnd, DECREASE_SPAWN_VELOCITY, MOD_CONTROL, 0x41);
 		
 		///375 px wdth 
 
@@ -45,11 +48,21 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_LBUTTONDOWN: {
 		mainController->switchTraficLightColor();
 	}
+	case WM_HOTKEY:
+		switch (wParam)
+		{
+		case INCREASE_SPAWN_VELOCITY:
+			core.increaseRandomSpeed();
+			break;
+		case DECREASE_SPAWN_VELOCITY:
+			core.decreaseRandomSpeed();
+			break;
+		}
+		break;
 	case WM_TIMER:
 		switch (wParam)
 		{
 		case TIMER_ELAPSE:
-			delta = counter*1.0/FPS_PER_TRANSACTION;
 			counter++;
 			if (counter > FPS_PER_TRANSACTION)
 			{
@@ -101,6 +114,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			break;
         }
         break;
+
+	case WM_GETMINMAXINFO: {
+		MINMAXINFO *mmi = (MINMAXINFO *)lParam;
+		mmi->ptMinTrackSize.x = WINDOW_WIDTH;
+		mmi->ptMinTrackSize.y = WINDOW_HEIGHT;
+		return 0; 
+	}
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
