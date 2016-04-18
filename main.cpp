@@ -13,7 +13,12 @@ MainController *mainController;
 #define INTERVAL 1000/FPS
 #define FPS_PER_TRANSACTION 100
 
+#define INCREASE_SPEED 0
+#define DECREASE_SPEED 1
+#define GENERATE_CAR 1
+
 int counter;
+float delta;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -35,14 +40,13 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		switch (wParam)
 		{
 		case TIMER_ELAPSE:
+			delta = counter*1.0/FPS_PER_TRANSACTION;
 			counter++;
-			if(counter > FPS_PER_TRANSACTION)
+			if (counter > FPS_PER_TRANSACTION)
 			{
+				core.nextStep();
 				counter = 0;
 			}
-			core.nextStep();
-			if(rand() % 2 == 0)
-				core.generateRandomCar();
 			RECT rect;
 			GetClientRect(hWnd, &rect);
 			///Update all here

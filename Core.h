@@ -19,5 +19,7 @@ public:
 	void generateRandomCar();
 	bool canGoThroughtPath(Car *car, bool fromA);
 	void createTransactionForCar(Car *car,bool fromA);
+	void increaseSpeed();
+	void decreaseSpeed();
 };
 

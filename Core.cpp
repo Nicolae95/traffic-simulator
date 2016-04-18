@@ -169,3 +169,14 @@ void Core::createTransactionForCar(Car* car,bool fromA)
 		transactions.push_back(new Transaction(currentRoad, toRoad, fromA, toA));
 	}
 }
+
+void Core::increaseSpeed()
+{
+	if (delay > 2)
+		delay--;
+}
+
+void Core::decreaseSpeed()
+{
+	delay++;
+}
