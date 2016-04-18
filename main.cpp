@@ -16,6 +16,7 @@ MainController *mainController;
 #define DECREASE_SPAWN_VELOCITY 2
 
 int counter;
+float delta;
 
 void onNewCycle(Car *carIAH,Car *carOAH,Car *carIBH,Car *carOBH, Car *carIAV, Car *carOAV, Car *carIBV, Car *carOBV)
 {
@@ -71,13 +72,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		{
 		case TIMER_ELAPSE:
 			counter++;
-			if (counter > FPS_PER_TRANSACTION)
+			delta = counter*1.0 / FPS_PER_TRANSACTION;
+			if(delta > 0.5)
 			{
-				core.nextStep();
+
 				mainController->setPHA(core.horizontalRoad.crossingA);
 				mainController->setPHB(core.horizontalRoad.crossingB);
 				mainController->setPVA(core.verticalRoad.crossingA);
 				mainController->setPVB(core.verticalRoad.crossingB);
+			}
+			if (counter > FPS_PER_TRANSACTION)
+			{
+				mainController->setPHA(false);
+				mainController->setPHB(false);
+				mainController->setPVA(false);
+				mainController->setPVB(false);
+				core.nextStep();
 				std::list<Car*>::iterator HOA = core.horizontalRoad._outputA.begin();
 				HOA++;
 				std::list<Car*>::iterator HOB = core.horizontalRoad._outputB.begin();

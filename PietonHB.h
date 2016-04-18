@@ -6,7 +6,7 @@ class PietonHB : public Sprite
 private:
 	bool isActive = false;
 public:
-	PietonHB(HINSTANCE hInst) : Sprite(hInst, L"assets/audi.bmp", 450, 325, 50, 50) {
+	PietonHB(HINSTANCE hInst) : Sprite(hInst, L"assets/childs.bmp", 450, 325, 50, 50) {
 
 	}
 

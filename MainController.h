@@ -23,7 +23,10 @@
 class MainController
 {
 private:
-	LPCWSTR path = L"assets/audi.bmp";
+	LPCWSTR pathT = L"assets/audi-t.bmp";
+	LPCWSTR pathB = L"assets/audi-b.bmp";
+	LPCWSTR pathL = L"assets/audi-l.bmp";
+	LPCWSTR pathR = L"assets/audi-r.bmp";
 	vector<Sprite*> sprites;
 	vector<Sprite*> scenObjects;
 	HINSTANCE hInst;
@@ -105,7 +108,7 @@ public:
 
 	void createDcar(bool leftLight, bool rightLight,bool animate)
 	{
-		Sprite* car = new CarObjectD(hInst, path);
+		Sprite* car = new CarObjectD(hInst, pathL);
 		((CarObjectD*)car)->turnLeft(leftLight);
 		((CarObjectD*)car)->turnRight(rightLight);
 		((CarObjectD*)car)->setAnimate(animate);
@@ -115,7 +118,7 @@ public:
 
 	void createCcar(bool leftLight, bool rightLight, bool animate)
 	{
-		Sprite* car = new CarObjectC(hInst, path);
+		Sprite* car = new CarObjectC(hInst, pathB);
 		((CarObjectC*)car)->turnLeft(leftLight);
 		((CarObjectC*)car)->turnRight(rightLight);
 		((CarObjectC*)car)->setAnimate(animate);
@@ -125,7 +128,7 @@ public:
 
 	void createAcar(bool leftLight, bool rightLight, bool animate)
 	{
-		Sprite* car = new CarObjectA(hInst, path);
+		Sprite* car = new CarObjectA(hInst, pathT);
 		((CarObjectA*)car)->turnLeft(leftLight);
 		((CarObjectA*)car)->turnRight(rightLight);
 		((CarObjectA*)car)->setAnimate(animate);
@@ -134,7 +137,7 @@ public:
 	}
 
 	void createBcar(bool leftLight, bool rightLight, bool animate) {
-		Sprite* car = new CarObjectB(hInst, path);
+		Sprite* car = new CarObjectB(hInst, pathR);
 		((CarObjectB*)car)->turnLeft(leftLight);
 		((CarObjectB*)car)->turnRight(rightLight);
 		((CarObjectB*)car)->setAnimate(animate);
@@ -147,7 +150,7 @@ public:
 
 	void createDOcar(bool leftLight, bool rightLight)
 	{
-		Sprite* car = new CarObjectDO(hInst, path);
+		Sprite* car = new CarObjectDO(hInst, pathR);
 		((CarObjectDO*)car)->turnLeft(leftLight);
 		((CarObjectDO*)car)->turnRight(rightLight);
 		((CarObjectDO*)car)->go();
@@ -156,7 +159,7 @@ public:
 
 	void createCOcar(bool leftLight, bool rightLight)
 	{
-		Sprite* car = new CarObjectCO(hInst, path);
+		Sprite* car = new CarObjectCO(hInst, pathT);
 		((CarObjectCO*)car)->turnLeft(leftLight);
 		((CarObjectCO*)car)->turnRight(rightLight);
 		((CarObjectCO*)car)->go();
@@ -165,7 +168,7 @@ public:
 
 	void createAOcar(bool leftLight, bool rightLight)
 	{
-		Sprite* car = new CarObjectAO(hInst, path);
+		Sprite* car = new CarObjectAO(hInst, pathB);
 		((CarObjectAO*)car)->turnLeft(leftLight);
 		((CarObjectAO*)car)->turnRight(rightLight);
 		((CarObjectAO*)car)->go();
@@ -173,7 +176,7 @@ public:
 	}
 
 	void createBOcar(bool leftLight, bool rightLight) {
-		Sprite* car = new CarObjectBO(hInst, path);
+		Sprite* car = new CarObjectBO(hInst, pathL);
 		((CarObjectBO*)car)->turnLeft(leftLight);
 		((CarObjectBO*)car)->turnRight(rightLight);
 		((CarObjectBO*)car)->go();

@@ -6,7 +6,7 @@ class PietonHA : public Sprite
 private :
 	bool isActive = false;
 public:
-	PietonHA(HINSTANCE hInst) : Sprite(hInst,L"assets/audi.bmp",200,325,50,50) {
+	PietonHA(HINSTANCE hInst) : Sprite(hInst,L"assets/childs.bmp",200,325,50,50) {
 		
 	}
 
