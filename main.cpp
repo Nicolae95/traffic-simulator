@@ -22,13 +22,13 @@ void onNewCycle(Car *carIAH,Car *carOAH,Car *carIBH,Car *carOBH, Car *carIAV, Ca
 	//remove old !!!
 	mainController->removeAllCars();
 	if (carIAH)
-		mainController->createBcar(carIAH->direction == LEFT, carIAH->direction == RIGHT);
+		mainController->createBcar(carIAH->direction == LEFT, carIAH->direction == RIGHT,carIAH->animateAparition);
 	if (carIBH)
-		mainController->createDcar(carIBH->direction == RIGHT, carIBH->direction == LEFT);
+		mainController->createDcar(carIBH->direction == RIGHT, carIBH->direction == LEFT, carIBH->animateAparition);
 	if (carIAV)
-		mainController->createAcar(carIAV->direction == LEFT, carIAV->direction == RIGHT);
+		mainController->createAcar(carIAV->direction == LEFT, carIAV->direction == RIGHT, carIAV->animateAparition);
 	if (carIBV)
-		mainController->createCcar(carIBV->direction == RIGHT, carIBV->direction == LEFT);
+		mainController->createCcar(carIBV->direction == RIGHT, carIBV->direction == LEFT, carIBV->animateAparition);
 	
 	if (carOAH)
 		mainController->createBOcar(carOAH->direction == RIGHT, carOAH->direction == LEFT);

@@ -102,6 +102,7 @@ public:
 	void go() {
 		if (animate)
 			this->setVelocity(0, 2);
+		else y = notIntersectoin;
 	}
 };
 
