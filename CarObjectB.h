@@ -33,15 +33,14 @@ public:
 		DeleteDC(hdcMem);
 	}
 
-	void turnLeft() {
-		rightLight = false;
-		leftLight = true;
+	void turnLeft(bool val) {
+		leftLight = val;
 	}
 
-	void turnRight() {
-		rightLight = true;
-		leftLight = false;
+	void turnRight(bool val) {
+		rightLight = val;
 	}
+
 
 	void switchOffLights() {
 		leftLight = rightLight = false;
