@@ -21,4 +21,4 @@ We haven't resolved animation in intersection due lack of time , so there we can
 We used git as a Subversion Control and worked on branches master,core,userInterface. Also we have set some tags which are "Release version" (stable version). We can see there 2 tags 1.0 and 1.1. In our repository we can find more than 50 commits.
 
 # Youtube video (demo)
-(https://www.youtube.com/watch?v=huquXErlh6s&feature=youtu.be)[https://www.youtube.com/watch?v=huquXErlh6s&feature=youtu.be]
+https://www.youtube.com/watch?v=huquXErlh6s&feature=youtu.be
