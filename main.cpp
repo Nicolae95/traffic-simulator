@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "main.h"
 #include "Sprite.h"
-#include "CarObject.h"
+#include "CarObjectA.h"
 #include "MainController.h"
 #include "Core.h"
 Sprite *backgorund;
@@ -30,12 +30,15 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		SetTimer(hWnd, TIMER_ELAPSE, INTERVAL, (TIMERPROC)NULL);
 		mainController = new MainController(hInst,hWnd);
 		
-		//Gnerate Objects
-		mainController->setBackGorund();
-		mainController->generateRandomCar();
+		///375 px wdth 
 
+		//Gnerate Objects
+		mainController->createAcar();
 
 		break;
+	case WM_LBUTTONDOWN: {
+		mainController->switchTraficLightColor();
+	}
 	case WM_TIMER:
 		switch (wParam)
 		{
