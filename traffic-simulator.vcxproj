@@ -160,6 +160,10 @@
     <ClInclude Include="CarObjectDO.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="MainController.h" />
+    <ClInclude Include="PietonHA.h" />
+    <ClInclude Include="PietonHB.h" />
+    <ClInclude Include="PietonVA.h" />
+    <ClInclude Include="PietonVB.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Road.h" />
     <ClInclude Include="Sprite.h" />
@@ -178,6 +182,10 @@
     <ClCompile Include="CarObjectD.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="MainController.cpp" />
+    <ClCompile Include="PietonHA.cpp" />
+    <ClCompile Include="PietonHB.cpp" />
+    <ClCompile Include="PietonVA.cpp" />
+    <ClCompile Include="PietonVB.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

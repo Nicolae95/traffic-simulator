@@ -90,6 +90,18 @@
     <ClInclude Include="CarObjectDO.h">
       <Filter>Header Files\traffic-objects</Filter>
     </ClInclude>
+    <ClInclude Include="PietonHA.h">
+      <Filter>Header Files\traffic-objects</Filter>
+    </ClInclude>
+    <ClInclude Include="PietonHB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PietonVA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PietonVB.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -130,6 +142,18 @@
     </ClCompile>
     <ClCompile Include="Transaction.cpp">
       <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="PietonHA.cpp">
+      <Filter>Source Files\traffic-objects</Filter>
+    </ClCompile>
+    <ClCompile Include="PietonHB.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PietonVA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PietonVB.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

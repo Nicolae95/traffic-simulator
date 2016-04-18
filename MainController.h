@@ -5,6 +5,7 @@
 
 #include "Sprite.h"
 #include "BackGroundObject.h"
+#include "TrafficLightObject.h"
 #include "CarObjectA.h"
 #include "CarObjectB.h"
 #include "CarObjectC.h"
@@ -13,7 +14,11 @@
 #include "CarObjectBO.h"
 #include "CarObjectCO.h"
 #include "CarObjectDO.h"
-#include "TrafficLightObject.h"
+#include "PietonHA.h"
+#include "PietonHB.h"
+#include "PietonVA.h"
+#include "PietonVB.h"
+
 
 class MainController
 {
@@ -25,12 +30,29 @@ private:
 	HWND hwnd;
 	TrafficLightObject *HtrafficLight;
 	TrafficLightObject *VtrafficLight;
+	PietonHA *PHA;
+	PietonHB *PHB;
+	PietonVA *PVA;
+	PietonVB *PVB;
+	
 
+	void pietonRender(PAINTSTRUCT ps, HDC hdc) {
+		PHA->render(hwnd, ps, hdc);
+		PHB->render(hwnd, ps, hdc);
+		PVA->render(hwnd, ps, hdc);
+		PVB->render(hwnd, ps, hdc);
+	}
 
 	void Setups() {
 		///Set the brackground..
 		scenObjects.push_back(new BackGroundObject(hInst, L"assets/map.bmp", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 650, 650));
-
+		
+		
+		//Set pieton....
+		PHA = new PietonHA(hInst);
+		PHB = new PietonHB(hInst);
+		PVA = new PietonVA(hInst);
+		PVB = new PietonVB(hInst);
 
 		//Setup Traffic Lights
 		TrafficLightObject *Vtemp;
@@ -60,6 +82,23 @@ public:
 	MainController(HINSTANCE hinst,HWND hwnd) {
 		this->hInst = hinst;
 		Setups();
+	}
+
+	//PietonActivators
+	void setPHA(bool val) {
+		PHA->setActive(val);
+	}
+
+	void setPHB(bool val) {
+		PHB->setActive(val);
+	}
+
+	void setPVA(bool val) {
+		PVA->setActive(val);
+	}
+
+	void setPVB(bool val) {
+		PVB->setActive(val);
 	}
 
 	/////Input..............................................
@@ -154,6 +193,7 @@ public:
 	}
 
 	void sceneObjectsRender(PAINTSTRUCT ps, HDC hdc) {
+		
 		for (std::vector<Sprite*>::iterator scenObject = scenObjects.begin(); scenObject != scenObjects.end(); ++scenObject) {
 			(*scenObject)->render(hwnd, ps, hdc);
 		}
@@ -161,6 +201,7 @@ public:
 
 	void render(PAINTSTRUCT ps,HDC hdc) {
 		sceneObjectsRender(ps, hdc);
+		pietonRender(ps,hdc);
 		for (std::vector<Sprite*>::iterator sprite = sprites.begin(); sprite != sprites.end(); ++sprite) {
 			(*sprite)->render(hwnd, ps, hdc);
 		}
