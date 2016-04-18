@@ -9,6 +9,10 @@
 #include "CarObjectB.h"
 #include "CarObjectC.h"
 #include "CarObjectD.h"
+#include "CarObjectAO.h"
+#include "CarObjectBO.h"
+#include "CarObjectCO.h"
+#include "CarObjectDO.h"
 #include "TrafficLightObject.h"
 
 class MainController
@@ -16,13 +20,16 @@ class MainController
 private:
 	LPCWSTR path = L"assets/audi.bmp";
 	vector<Sprite*> sprites;
+	vector<Sprite*> scenObjects;
 	HINSTANCE hInst;
 	HWND hwnd;
 	TrafficLightObject *HtrafficLight;
 	TrafficLightObject *VtrafficLight;
+
+
 	void Setups() {
 		///Set the brackground..
-		sprites.push_back(new BackGroundObject(hInst, L"assets/map.bmp", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 650, 650));
+		scenObjects.push_back(new BackGroundObject(hInst, L"assets/map.bmp", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 650, 650));
 
 
 		//Setup Traffic Lights
@@ -34,8 +41,8 @@ private:
 		VtrafficLight = new TrafficLightObject(hInst, 480, 480);
 		VtrafficLight->setSecond(Vtemp);
 		VtrafficLight->setInitialCollorTrue();
-		sprites.push_back(VtrafficLight);
-		sprites.push_back(Vtemp);
+		scenObjects.push_back(VtrafficLight);
+		scenObjects.push_back(Vtemp);
 
 
 		Htemp = new TrafficLightObject(hInst, 170, 480);
@@ -43,9 +50,10 @@ private:
 		HtrafficLight = new TrafficLightObject(hInst, 480, 180);
 		HtrafficLight->setSecond(Htemp);
 
-		sprites.push_back(HtrafficLight);
-		sprites.push_back(Htemp);
+		scenObjects.push_back(HtrafficLight);
+		scenObjects.push_back(Htemp);
 		switchTraficLightColor();
+
 	}
 
 public:
@@ -54,42 +62,97 @@ public:
 		Setups();
 	}
 
-	void createDcar()
+	/////Input..............................................
+
+	void createDcar(bool leftLight, bool rightLight)
 	{
 		Sprite* car = new CarObjectD(hInst, path);
+		((CarObjectD*)car)->turnLeft(leftLight);
+		((CarObjectD*)car)->turnRight(rightLight);
 		((CarObjectD*)car)->go();
 		sprites.push_back(car);
 	}
 
-	void createCcar()
+	void createCcar(bool leftLight, bool rightLight)
 	{
 		Sprite* car = new CarObjectC(hInst, path);
+		((CarObjectC*)car)->turnLeft(leftLight);
+		((CarObjectC*)car)->turnRight(rightLight);
 		((CarObjectC*)car)->go();
 		sprites.push_back(car);
 	}
 
-	void createAcar()
+	void createAcar(bool leftLight,bool rightLight)
 	{
 		Sprite* car = new CarObjectA(hInst, path);
+		((CarObjectA*)car)->turnLeft(leftLight);
+		((CarObjectA*)car)->turnRight(rightLight);
 		((CarObjectA*)car)->go();
 		sprites.push_back(car);
 	}
 
-	void createBcar() {
+	void createBcar(bool leftLight, bool rightLight) {
 		Sprite* car = new CarObjectB(hInst, path);
+		((CarObjectB*)car)->turnLeft(leftLight);
+		((CarObjectB*)car)->turnRight(rightLight);
 		((CarObjectB*)car)->go();
 		sprites.push_back(car);
 	}
+
+
+	/////Output ................................
+
+	void createDOcar()
+	{
+		Sprite* car = new CarObjectDO(hInst, path);
+		((CarObjectD*)car)->go();
+		sprites.push_back(car);
+	}
+
+	void createCOcar()
+	{
+		Sprite* car = new CarObjectCO(hInst, path);
+		((CarObjectC*)car)->go();
+		sprites.push_back(car);
+	}
+
+	void createAOcar()
+	{
+		Sprite* car = new CarObjectAO(hInst, path);
+		((CarObjectA*)car)->go();
+		sprites.push_back(car);
+	}
+
+	void createBOcar() {
+		Sprite* car = new CarObjectBO(hInst, path);
+		((CarObjectB*)car)->go();
+		sprites.push_back(car);
+	}
+
+	
+
+	void removeAllCars() {
+		sprites.clear();
+	}
+	
 
 	void switchTraficLightColor() {
 		VtrafficLight->switchColor();
 		HtrafficLight->switchColor();
 	}
 
+	void sceneObjectsRender(PAINTSTRUCT ps, HDC hdc) {
+		for (std::vector<Sprite*>::iterator scenObject = scenObjects.begin(); scenObject != scenObjects.end(); ++scenObject) {
+			(*scenObject)->render(hwnd, ps, hdc);
+		}
+	}
+
 	void render(PAINTSTRUCT ps,HDC hdc) {
+		sceneObjectsRender(ps, hdc);
 		for (std::vector<Sprite*>::iterator sprite = sprites.begin(); sprite != sprites.end(); ++sprite) {
 			(*sprite)->render(hwnd, ps, hdc);
 		}
+		
 	}
 
 	void update() {

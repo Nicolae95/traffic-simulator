@@ -4,16 +4,16 @@
 class CarObjectC : public Sprite
 {
 private:
+	int notIntersectoin = 150;
 	int vX;
 	int vY;
 	bool leftLight = false;
 	bool rightLight = false;
 public:
-	CarObjectC(HINSTANCE hInst, LPCWSTR path) : Sprite(hInst, path, 280, 90, 50, 70) {
-
-	}
+	CarObjectC(HINSTANCE hInst, LPCWSTR path) : Sprite(hInst, path, 280, 90, 50, 70) { }
 
 	void virtual render(HWND hwnd, PAINTSTRUCT ps, HDC hdc) {
+		
 		BITMAP 			bitmap;
 		HDC 			hdcMem;
 		HGDIOBJ 		oldBitmap;
@@ -32,15 +32,14 @@ public:
 		DeleteDC(hdcMem);
 	}
 
-	void turnLeft() {
-		rightLight = false;
-		leftLight = true;
+	void turnLeft(bool val) {
+		leftLight = val;
 	}
 
-	void turnRight() {
-		rightLight = true;
-		leftLight = false;
+	void turnRight(bool val) {
+		rightLight = val;
 	}
+
 
 	void switchOffLights() {
 		leftLight = rightLight = false;
@@ -89,12 +88,14 @@ public:
 	}
 
 	virtual void update() override {
-		x += vX;
-		y += vY;
+		if (y != notIntersectoin) {
+			x += vX;
+			y += vY;
+		}
 	}
 
 	void go() {
-		this->setVelocity(0, 5);
+		this->setVelocity(0, 2);
 	}
 };
 

@@ -4,6 +4,7 @@
 class CarObjectA : public Sprite
 {
 private:
+	int notIntersectoin = 500;
 	int vX;
 	int vY;
 	bool leftLight = false;
@@ -32,14 +33,12 @@ public:
 		DeleteDC(hdcMem);
 	}
 
-	void turnLeft() {
-		rightLight = false;
-		leftLight = true;
+	void turnLeft(bool val) {
+		leftLight = val;
 	}
 
-	void turnRight() {
-		rightLight = true;
-		leftLight = false;
+	void turnRight(bool val) {
+		rightLight = val;
 	}
 
 	void switchOffLights() {
@@ -89,12 +88,15 @@ public:
 	}
 
 	virtual void update() override {
-		x += vX;
-		y += vY;
+		if (y != notIntersectoin) {
+			x += vX;
+			y += vY;
+		}
+	
 	}
 
 	void go() {
-		this->setVelocity(0,-5);
+		this->setVelocity(0,-2);
 	}
 };
 

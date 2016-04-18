@@ -20,7 +20,24 @@ int counter;
 void onNewCycle(Car *carIAH,Car *carOAH,Car *carIBH,Car *carOBH, Car *carIAV, Car *carOAV, Car *carIBV, Car *carOBV)
 {
 	//remove old !!!
-
+	mainController->removeAllCars();
+	if (carIAH)
+		mainController->createBcar(carIAH->direction == RIGHT, carIAH->direction == LEFT);
+	if (carIBH)
+		mainController->createDcar(carIBH->direction == RIGHT, carIAH->direction == LEFT);
+	if (carIAV)
+		mainController->createAcar(carIAH->direction == RIGHT, carIAH->direction == LEFT);
+	if (carIBV)
+		mainController->createCcar(carIBH->direction == RIGHT, carIAH->direction == LEFT);
+	
+	if (carOAH)
+		mainController->createBcar(carIAH->direction == RIGHT, carIAH->direction == LEFT);
+	if (carOBH)
+		mainController->createDcar(carIBH->direction == RIGHT, carIAH->direction == LEFT);
+	if (carOAV)
+		mainController->createAcar(carIAH->direction == RIGHT, carIAH->direction == LEFT);
+	if (carOBV)
+		mainController->createCcar(carIBH->direction == RIGHT, carIAH->direction == LEFT);
 	//create new ones ! check for null
 }
 
@@ -33,6 +50,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 	case WM_CREATE:
 		SetTimer(hWnd, TIMER_ELAPSE, INTERVAL, (TIMERPROC)NULL);
 		mainController = new MainController(hInst,hWnd);
+<<<<<<< HEAD
 
 
 		RegisterHotKey(hWnd, INCREASE_SPAWN_VELOCITY, MOD_CONTROL, 0x51);
@@ -43,6 +61,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 		//Gnerate Objects
 		mainController->createAcar();
+=======
+>>>>>>> af3d9f3425355e4ce36e3688baa9286483366d08
 
 		break;
 	case WM_LBUTTONDOWN: {
@@ -89,6 +109,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			break;
 		}
 		break;
+	case WM_MOUSEWHEEL: {
+		int mouseWheel = (short)HIWORD(wParam);
+		mouseWheel > 0 ? core.increaseSpeed() : core.decreaseSpeed();
+	}
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
