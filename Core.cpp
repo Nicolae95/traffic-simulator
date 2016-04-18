@@ -111,9 +111,9 @@ void Core::check(Car* a, Car* b)
 {
 	bool aCanMove = true;
 	bool bCanMove = true;
-	if (a->direction == FRONT || b->direction == LEFT)
+	if (a->direction == FRONT && b->direction == LEFT)
 		bCanMove = false;
-	if (a->direction == LEFT || b->direction == FRONT)
+	if (a->direction == LEFT && b->direction == FRONT)
 		aCanMove = false;
 
 	if (a->direction == RIGHT && b->direction == LEFT)

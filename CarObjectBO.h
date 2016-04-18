@@ -12,7 +12,7 @@ private:
 	bool leftLight = false;
 	bool rightLight = false;
 public:
-	CarObjectBO(HINSTANCE hInst, LPCWSTR path) : Sprite(hInst, path, 200, 280, 70, 50) {
+	CarObjectBO(HINSTANCE hInst, LPCWSTR path) : Sprite(hInst, path, 320, 280, 70, 50) {
 
 	}
 
@@ -100,7 +100,7 @@ public:
 	}
 
 	void go() {
-		this->setVelocity(-4, 0);
+		this->setVelocity(-5, 0);
 	}
 };
 
