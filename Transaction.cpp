@@ -14,13 +14,19 @@ void Transaction::perform()
 	if (this->fromA) {
 		car = *(this->from->_inputA.begin());
 		this->from->_inputA.pop_front();
+		this->from->_inputA.push_back(NULL);
 	}
 	else {
 		car = *(this->from->_inputB.begin());
 		this->from->_inputB.pop_front();
+		this->from->_inputB.push_back(NULL);
 	}
-	if (this->toA)
+	if (this->toA){
+		this->to->_outputA.pop_back();
 		this->to->_outputA.push_back(car);
-	else
+	}
+	else {
+		this->to->_outputB.pop_back();
 		this->to->_outputB.push_back(car);
+	}
 }

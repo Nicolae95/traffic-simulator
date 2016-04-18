@@ -22,6 +22,36 @@ void Core::nextStep()
 	}
 	currentRoad->active = true;
 
+	if (*(verticalRoad._inputA.begin()) == NULL) {
+		verticalRoad._inputA.pop_front();
+		verticalRoad._inputA.push_back(NULL);
+	}
+	if (*(verticalRoad._inputB.begin()) == NULL) {
+		verticalRoad._inputB.pop_front();
+		verticalRoad._inputB.push_back(NULL);
+	}
+	
+
+	if (*(horizontalRoad._inputA.begin()) == NULL) {
+		horizontalRoad._inputA.pop_front();
+		horizontalRoad._inputA.push_back(NULL);
+	}
+	if (*(horizontalRoad._inputB.begin()) == NULL) {
+		horizontalRoad._inputB.pop_front();
+		horizontalRoad._inputB.push_back(NULL);
+	}
+
+	verticalRoad._outputA.pop_front();
+	verticalRoad._outputA.push_back(NULL);
+	verticalRoad._outputB.pop_front();
+	verticalRoad._outputB.push_back(NULL);
+
+
+	horizontalRoad._outputA.pop_front();
+	horizontalRoad._outputA.push_back(NULL);
+	horizontalRoad._outputB.pop_front();
+	horizontalRoad._outputB.push_back(NULL);
+
 	// do transactions
 	for (std::list<Transaction*>::iterator it = transactions.begin(); it != transactions.end(); it++)
 	{
@@ -31,8 +61,8 @@ void Core::nextStep()
 	//remove transactions
 	transactions.clear();
 
-	Car* carA = currentRoad->_inputA.size() ? *(currentRoad->_inputA.begin()) : NULL;
-	Car* carB = currentRoad->_inputB.size() ? *(currentRoad->_inputB.begin()) : NULL;
+	Car* carA = *(currentRoad->_inputA.begin());
+	Car* carB = *(currentRoad->_inputB.begin());
 	if(carA && carB)
 		check(carA, carB);
 	else
@@ -41,7 +71,6 @@ void Core::nextStep()
 			createTransactionForCar(carA,true);
 		if (carB)
 			createTransactionForCar(carB,false);
-
 	}
 
 	// reset crossing :) assume that "pietons" crossed lines.
@@ -53,8 +82,12 @@ void Core::generateRandomCar()
 {
 	Road *temp = (rand() % 2) ? &horizontalRoad : &verticalRoad;
 	std::list<Car*> *tempList = (rand() % 2) ? &temp->_inputA : &temp->_inputB;
-	if(tempList->size() < carsPerBand)
+	std::list<Car*>::iterator iterator = tempList->end();
+	iterator--;
+	if (*iterator == NULL) {
+		tempList->pop_back();
 		tempList->push_back(new Car());
+	}
 }
 
 

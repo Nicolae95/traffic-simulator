@@ -5,7 +5,6 @@
 class Core
 {
 private:
-	const int carsPerBand = 3;
 	int iterator;
 	int delay;
 	Road verticalRoad;

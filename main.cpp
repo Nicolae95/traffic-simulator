@@ -10,7 +10,7 @@ Sprite *backgorund;
 MainController *mainController;
 
 #define FPS 50
-#define INTERVAL 100/FPS
+#define INTERVAL 1000/FPS
 #define FPS_PER_TRANSACTION 100
 
 int counter;
@@ -22,7 +22,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     switch (message)
     {
 	case WM_CREATE:
-		SetTimer(hWnd, TIMER_ELAPSE, 40, (TIMERPROC)NULL);
+		SetTimer(hWnd, TIMER_ELAPSE, INTERVAL, (TIMERPROC)NULL);
 		mainController = new MainController(hInst,hWnd);
 		
 		//Gnerate Objects
@@ -39,8 +39,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 			if(counter > FPS_PER_TRANSACTION)
 			{
 				counter = 0;
-				core.nextStep();
 			}
+			core.nextStep();
+			if(rand() % 2 == 0)
+				core.generateRandomCar();
 			RECT rect;
 			GetClientRect(hWnd, &rect);
 			///Update all here
