@@ -147,7 +147,11 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CarObject.h" />
+    <ClInclude Include="BackGroundObject.h" />
+    <ClInclude Include="CarObjectA.h" />
+    <ClInclude Include="CarObjectB.h" />
+    <ClInclude Include="CarObjectC.h" />
+    <ClInclude Include="CarObjectD.h" />
     <ClInclude Include="MainController.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Sprite.h" />
@@ -157,7 +161,11 @@
     <ClInclude Include="TrafficLightObject.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CarObject.cpp" />
+    <ClCompile Include="BackGroundObject.cpp" />
+    <ClCompile Include="CarObjectA.cpp" />
+    <ClCompile Include="CarObjectB.cpp" />
+    <ClCompile Include="CarObjectC.cpp" />
+    <ClCompile Include="CarObjectD.cpp" />
     <ClCompile Include="MainController.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -1,15 +1,15 @@
 #pragma once
 #include "Sprite.h"
 
-class CarObject : public Sprite
+class CarObjectA : public Sprite
 {
 private:
 	int vX;
 	int vY;
 	bool leftLight = false;
-	bool rightLight = true;
+	bool rightLight = false;
 public:
-	CarObject(HINSTANCE hInst, LPCWSTR path, int x, int y, int width, int height) : Sprite(hInst,path,x,y,width,height) {
+	CarObjectA(HINSTANCE hInst, LPCWSTR path) : Sprite(hInst,path,375,520,50,70) {
 
 	}
 
@@ -23,10 +23,10 @@ public:
 		
 		GetObject(hBitmap, sizeof(bitmap), &bitmap);
 		BitBlt(hdc, x - width / 2, y - height / 2, bitmap.bmWidth, bitmap.bmHeight, hdcMem, 0, 0, SRCCOPY);
-		
-		LeftLight(hdc);
-	
-		RightLight(hdc);
+		if(leftLight)
+			LeftLight(hdc);
+		if(rightLight)
+			RightLight(hdc);
 
 		SelectObject(hdcMem, oldBitmap);
 		DeleteDC(hdcMem);
@@ -40,6 +40,10 @@ public:
 	void turnRight() {
 		rightLight = true;
 		leftLight = false;
+	}
+
+	void switchOffLights() {
+		leftLight = rightLight = false;
 	}
 
 	void LeftLight(HDC hdc) {
@@ -87,6 +91,10 @@ public:
 	virtual void update() override {
 		x += vX;
 		y += vY;
+	}
+
+	void go() {
+		this->setVelocity(0,-5);
 	}
 };
 

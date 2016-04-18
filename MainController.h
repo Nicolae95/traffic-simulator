@@ -4,7 +4,11 @@
 #include <vector>
 
 #include "Sprite.h"
-#include "CarObject.h"
+#include "BackGroundObject.h"
+#include "CarObjectA.h"
+#include "CarObjectB.h"
+#include "CarObjectC.h"
+#include "CarObjectD.h"
 #include "TrafficLightObject.h"
 
 class MainController
@@ -17,7 +21,7 @@ private:
 	TrafficLightObject *VtrafficLight;
 	void Setups() {
 		///Set the brackground..
-		sprites.push_back(new CarObject(hInst, L"assets/map.bmp", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 650, 650));
+		sprites.push_back(new BackGroundObject(hInst, L"assets/map.bmp", WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 650, 650));
 
 
 		//Setup Traffic Lights
@@ -49,32 +53,20 @@ public:
 		Setups();
 	}
 
-
-	void generateRandomCar(int x, int y) {
-		LPCWSTR path;
-		switch (rand() % 5) {
-		case 0:
-			path = L"assets/Audi.bmp";
-			break;
-		case 1:
-			path = L"assets/Audi.bmp";
-			break;
-		case 2:
-			path = L"assets/Audi.bmp";
-			break;
-		case 3:
-			path = L"assets/Audi.bmp";
-			break;
-		case 4:
-			path = L"assets/Audi.bmp";
-			break;
-		default:
-			path = L"assets/Audi.bmp";
-			break;
-		}
-
-		Sprite* car = new CarObject(hInst, path, x, y, 50, 70);
-		((CarObject*)car)->setVelocity(0, -1);
+	void createAcar() {
+		LPCWSTR path = L"assets/audi.bmp";
+		
+		Sprite* car = new CarObjectA(hInst, path);
+		((CarObjectA*)car)->go();
+		sprites.push_back(car);
+		car = new CarObjectB(hInst, path);
+		((CarObjectB*)car)->go();
+		sprites.push_back(car);
+		car = new CarObjectC(hInst, path);
+		((CarObjectC*)car)->go();
+		sprites.push_back(car);
+		car = new CarObjectD(hInst, path);
+		((CarObjectD*)car)->go();
 		sprites.push_back(car);
 	}
 
@@ -82,10 +74,6 @@ public:
 		VtrafficLight->switchColor();
 		HtrafficLight->switchColor();
 	}
-
-
-
-
 
 	void render(PAINTSTRUCT ps,HDC hdc) {
 		for (std::vector<Sprite*>::iterator sprite = sprites.begin(); sprite != sprites.end(); ++sprite) {

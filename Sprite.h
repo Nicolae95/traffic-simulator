@@ -19,8 +19,7 @@ public:
 		hBitmap = (HBITMAP)LoadImage(hInst, path, IMAGE_BITMAP, width, height, LR_LOADFROMFILE);
 	};
 
-	void virtual render(HWND hwnd, PAINTSTRUCT ps, HDC hdc ) {
-	}
+	void virtual render(HWND hwnd, PAINTSTRUCT ps, HDC hdc ) {}
 	
 	virtual void update() = 0;
 };

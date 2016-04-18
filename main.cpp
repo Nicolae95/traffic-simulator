@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "main.h"
 #include "Sprite.h"
-#include "CarObject.h"
+#include "CarObjectA.h"
 #include "MainController.h"
 Sprite *backgorund;
 
@@ -22,8 +22,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		///375 px wdth 
 
 		//Gnerate Objects
-		mainController->generateRandomCar(375,500);
-
+		mainController->createAcar();
 
 		break;
 	case WM_LBUTTONDOWN: {
